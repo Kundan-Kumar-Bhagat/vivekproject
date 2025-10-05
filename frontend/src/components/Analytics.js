@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -38,7 +38,7 @@ const Analytics = () => {
 
   const fetchLabels = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/labels');
+      const res = await api.get('/labels');
       setLabels(res.data);
     } catch (err) {
       console.error(err);
@@ -47,7 +47,7 @@ const Analytics = () => {
 
   const fetchAnalytics = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/images', {
+      const res = await api.get('/images', {
         params: {
           label: selectedLabel,
         },

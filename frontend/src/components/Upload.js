@@ -1,6 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useDropzone } from 'react-dropzone';
 import { Form, Button, Alert, Image } from 'react-bootstrap';
 import './Upload.css';
@@ -30,7 +30,7 @@ const Upload = () => {
     formData.append('image', file);
 
     try {
-      const res = await axios.post('/api/images', formData, {
+      const res = await api.post('/images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

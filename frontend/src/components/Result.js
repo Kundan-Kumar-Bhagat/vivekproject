@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useParams } from 'react-router-dom';
 import { Card, ListGroup, ListGroupItem, Row, Col, Badge } from 'react-bootstrap';
 import './Result.css';
@@ -12,7 +12,7 @@ const Result = () => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const res = await axios.get(`/api/images/${id}`);
+        const res = await api.get(`/images/${id}`);
         setImage(res.data);
       } catch (err) {
         console.error(err);
@@ -81,7 +81,7 @@ const Result = () => {
               {image.detections.map((detection, index) => (
                 <ListGroup.Item key={index}>
                   <Badge variant="primary" className="mr-2">{detection.label}</Badge>
-                  <small>BBox: {detection.bbox.join(', ' )}</small>
+                  <small>BBox: {detection.bbox.join(', ')}</small>
                 </ListGroup.Item>
               ))}
             </ListGroup>

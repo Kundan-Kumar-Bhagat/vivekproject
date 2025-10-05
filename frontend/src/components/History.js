@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Form, Button, InputGroup, FormControl, Modal } from 'react-bootstrap';
 import './History.css';
@@ -19,7 +19,7 @@ const History = () => {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get('/api/images', {
+      const res = await api.get('/images', {
         params: {
           label: selectedLabel,
         },
@@ -32,7 +32,7 @@ const History = () => {
 
   const fetchLabels = async () => {
     try {
-      const res = await axios.get('/api/labels');
+      const res = await api.get('/labels');
       setLabels(res.data);
     } catch (err) {
       console.error(err);
