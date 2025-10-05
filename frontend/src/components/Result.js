@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import api from '../api';
 import { useParams } from 'react-router-dom';
-import { Card, ListGroup, ListGroupItem, Row, Col, Badge } from 'react-bootstrap';
+import { Card, ListGroup, Row, Col, Badge } from 'react-bootstrap';
 import './Result.css';
 
 const Result = () => {

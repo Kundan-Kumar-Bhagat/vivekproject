@@ -28,10 +28,12 @@ const Analytics = () => {
   const [labels, setLabels] = useState([]);
   const [selectedLabel, setSelectedLabel] = useState('');
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchLabels();
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     fetchAnalytics();
   }, [selectedLabel]);
